@@ -17,22 +17,22 @@ public class ReportService {
     }
 
     public Map<OrderStatus, Integer> countByStatus() {
-        throw new UnsupportedOperationException("TODO Person C: EnumMap with every status, 0 when there are none");
+        throw new UnsupportedOperationException("TODO Person E: EnumMap with every status, 0 when there are none");
     }
 
     public Map<String, BigDecimal> revenueByProduct() {
-        throw new UnsupportedOperationException("TODO Person C: TreeMap of CONFIRMED lines, summed with merge(...)");
+        throw new UnsupportedOperationException("TODO Person E: TreeMap of CONFIRMED lines, summed with merge(...)");
     }
 
     public BigDecimal totalRevenue() {
-        throw new UnsupportedOperationException("TODO Person C: add up the values of revenueByProduct()");
+        throw new UnsupportedOperationException("TODO Person E: add up the values of revenueByProduct()");
     }
 
     public List<Map.Entry<String, BigDecimal>> topCustomers(int n) {
-        throw new UnsupportedOperationException("TODO Person C: total per customer (CONFIRMED only), highest first, at most n");
+        throw new UnsupportedOperationException("TODO Person E: total per customer (CONFIRMED only), highest first, at most n");
     }
 
     public Set<Finishing> finishingUsed() {
-        throw new UnsupportedOperationException("TODO Person C: EnumSet of the finishing in CONFIRMED orders");
+        throw new UnsupportedOperationException("TODO Person E: EnumSet of the finishing in CONFIRMED orders");
     }
 }

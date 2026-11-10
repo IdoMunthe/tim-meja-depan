@@ -1,21 +1,29 @@
 # Print-shop order desk: Hands-on 3 team template
 
-Session 3 team project in plain Java: no Spring, no HTTP, no database, no tests. Three people, one Git repository, one branch per person, pull requests to bring the work together.
+Session 3 team project in plain Java: no Spring, no HTTP, no database, no tests. Five people (or six), one Git repository, one branch per person, pull requests to bring the work together.
 
 The project already compiles. Every method you still have to write throws `UnsupportedOperationException("TODO ...")`, and the message tells you who owns it and what it must do. Run any `main()` and the first TODO you hit tells you where to start.
 
 ## Who owns what
 
-| Person | Package | Files | Branch |
+Each person owns **their own files**. Only change the files in your row.
+
+| Person | Files | Topic | Branch |
 |---|---|---|---|
-| A | `product` | `PrintProduct`, `Discountable`, `ProductCatalog`, `ProductDemo`, and new classes `BusinessCard`, `Poster`, `Banner` | `feature/person-a-products` |
-| B | `order` | `OrderLine`, `ParsedLine`, `Order`, `OrderLineParser`, `OrderDemo` | `feature/person-b-orders` |
-| C | `report` | `OrderBook`, `ReportService`, `ReportDemo` | `feature/person-c-reports` |
-| Together | `app` | `OrderDesk` (Part 2, after the three PRs are merged) | `feature/order-desk` |
+| A · Products | `product/`: `PrintProduct`, `Discountable`, `ProductCatalog`, `ProductDemo`, and new classes `BusinessCard`, `Poster`, `Banner` | 1, 3 | `feature/person-a-products` |
+| B · Orders | `order/OrderLine`, `order/Order`, `order/OrderDemo` | 4 | `feature/person-b-orders` |
+| C · Parser | `order/ParsedLine`, `order/OrderLineParser`, `order/ParserDemo` | 2 | `feature/person-c-parser` |
+| D · Order book | `report/OrderBook`, `report/OrderBookDemo` | 3 | `feature/person-d-order-book` |
+| E · Reports | `report/ReportService`, `report/ReportDemo` | 3 | `feature/person-e-reports` |
+| Together | `app/OrderDesk` (Part 2, after the five PRs are merged) | 2 + all | `feature/order-desk` |
+
+**Team of six:** the sixth person starts `app/OrderDesk` in Part 1 on `feature/order-desk` (reading `orders.csv` and `actions.txt` against the contract), and leads Part 2.
 
 `common` (`Finishing`, `OrderStatus`) and every class and method signature are already there: that is the team contract. Do not rename or change a signature without telling your team, because the others are coding against it.
 
-Person B: the records `OrderLine`, `ParsedLine` and `Order` exist so Person C can use them from the first minute. Your job is to add the compact constructors (defensive copies) and fill in the methods.
+The records `OrderLine`, `ParsedLine` and `Order` already exist, so everyone can compile against them from the first minute. Person B adds the compact constructors of `OrderLine` and `Order`, Person C the one of `ParsedLine`.
+
+Demos that use someone else's code (for example `ReportDemo` needs `Order.newOrder` from Person B and `OrderBook` from Person D) run as soon as those PRs are merged: merge early, merge small, then `git pull`.
 
 ## Git workflow
 
